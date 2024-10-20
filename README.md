@@ -14,10 +14,12 @@
   - **Standard Deviation (Volatility)**: Measure of risk, indicating how much the stock’s returns fluctuate.
   - **Covariance Matrix**: Shows how different stocks move in relation to each other, crucial for understanding portfolio diversification.
 - **Formulae**:
-  \[
-  \text{Mean Return} = \frac{\sum (R_i)}{N}, \quad \text{Standard Deviation} = \sqrt{\frac{\sum (R_i - \bar{R})^2}{N-1}}
-  \]
-  Where \(R_i\) represents returns and \( \bar{R} \) is the mean return.
+- 
+$$
+\text{Mean Return} = \frac{\sum (R_i)}{N}, \quad \text{Standard Deviation} = \sqrt{\frac{\sum (R_i - \bar{R})^2}{N-1}}
+$$
+
+Where $R_i$ represents returns and $\bar{R}$ is the mean return.
 
 #### **3. Monte Carlo Simulation for Portfolio Optimization**
 - **Goal**: Generate different portfolio combinations to evaluate return, risk, and Sharpe ratio.
@@ -25,20 +27,26 @@
 - **Steps**:
   - Randomly assign portfolio weights (ensuring the sum equals 1).
   - Calculate **Portfolio Return**:
-    \[
-    \text{Portfolio Return} = \sum w_i \cdot \mu_i
-    \]
-    Where \(w_i\) are the weights, and \( \mu_i \) are the mean returns.
+  - 
+$$
+\text{Portfolio Return} = \sum w_i \cdot \mu_i
+$$
+
+Where $w_i$ are the weights, and $\mu_i$ are the mean returns.
   - Calculate **Portfolio Volatility** (Risk):
-    \[
-    \sigma_p = \sqrt{W^T \cdot Cov \cdot W}
-    \]
-    Where \(W\) is the vector of weights, and \(Cov\) is the covariance matrix.
+  - 
+$$
+\sigma_p = \sqrt{W^T \cdot Cov \cdot W}
+$$
+
+Where $W$ is the vector of weights, and $Cov$ is the covariance matrix.
   - Calculate **Sharpe Ratio**:
-    \[
-    \text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}
-    \]
-    Where \(R_p\) is the portfolio return, \(R_f\) is the risk-free rate, and \( \sigma_p \) is portfolio volatility.
+  - 
+$$
+\text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}
+$$
+
+Where $R_p$ is the portfolio return, $R_f$ is the risk-free rate, and $\sigma_p$ is portfolio volatility.
 
 #### **4. Selection of Optimal Portfolio**
 - **Goal**: Identify the portfolios with the **Maximum Sharpe Ratio** (best risk-adjusted return) and **Minimum Volatility**.
@@ -56,14 +64,19 @@
 - **Steps**:
   - Simulate the portfolio returns using Monte Carlo simulations.
   - Sort the returns in ascending order.
-  - **VaR**: Calculate the return at the \(1-\alpha\) percentile, where \( \alpha \) is the confidence level.
-    \[
-    VaR = \text{Return at the } (1-\alpha) \text{ percentile of simulated returns}
-    \]
+  - **VaR**: Calculate the return at the $(1-\alpha)$ percentile, where $\alpha$ is the confidence level.
+    
+$$
+VaR = \text{Return at the } (1-\alpha) \text{ percentile of simulated returns}
+$$
+
+  
   - **CVaR**: Calculate the average of the losses beyond the VaR threshold:
-    \[
-    CVaR = E[\text{Loss} | \text{Loss} > VaR]
-    \]
+  - 
+$$
+CVaR = E[\text{Loss} | \text{Loss} > VaR]
+$$
+
   
 #### **6. Interpretation of VaR and CVaR**
 - **VaR**: Informs the potential maximum loss in 95% of cases over a given period (e.g., a VaR of $10,000 means there's a 5% chance the portfolio could lose more than $10,000).
